@@ -1,0 +1,45 @@
+<%- include('./partials/header') %>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">Register</h3>
+                <form action="/register" method="POST" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-control" type="text" id="username" name="username" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please choose a username.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-control" type="password" id="password" name="password" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please provide a password.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="gender">Gender</label>
+                        <select class="form-select" id="gender" name="gender" required>
+                            <option value="" selected disabled>Choose...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a gender.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="location">Address Location</label>
+                        <input class="form-control" type="text" id="location" name="address_location" required>
+                        <div class="invalid-feedback">Please provide an address location.</div>
+                    </div>
+                    <div class="d-grid">
+                        <button class="btn btn-success" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>

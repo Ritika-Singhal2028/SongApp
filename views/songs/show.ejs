@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="card-title"><%= song.songName %></h2>
+                <h5 class="card-subtitle mb-3 text-muted">Artist: <%= song.singer %></h5>
+                <p class="card-text"><strong>Duration:</strong> <%= song.duration %></p>
+                <p class="card-text">
+                    <strong>Added by:</strong> <%= song.user ? song.user.username : 'Unknown' %>
+                    <% if (song.user && song.user.address && song.user.address.location) { %>
+                        (<%= song.user.address.location %>)
+                    <% } %>
+                </p>
+                
+                <% if(currentUser && song.user && song.user._id.equals(currentUser._id)) { %>
+                    <div class="d-flex gap-2 mt-4">
+                        <a href="/songs/<%= song._id %>/edit" class="btn btn-info">Edit Name</a>
+                        <form action="/songs/<%= song._id %>/delete" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+            <div class="card-footer text-muted">
+                Added on <%= song.createdAt ? song.createdAt.toDateString() : '' %>
+            </div>
+        </div>
+        <div class="mt-3">
+            <a href="/songs" class="text-decoration-none">&larr; Back to all songs</a>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

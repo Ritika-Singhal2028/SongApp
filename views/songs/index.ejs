@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<h1 class="mb-4 text-center">All Songs</h1>
+
+<div class="row">
+    <% for(let song of songs) { %>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><%= song.songName %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">By <%= song.singer %></h6>
+                    <p class="card-text">Duration: <%= song.duration %></p>
+                    <p class="card-text"><small class="text-muted">Added by: <%= song.user ? song.user.username : 'Unknown' %></small></p>
+                    <a href="/songs/<%= song._id %>" class="btn btn-primary btn-sm">View Details</a>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
